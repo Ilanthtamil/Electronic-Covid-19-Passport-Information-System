@@ -1,0 +1,43 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = eCPIS.o MyDate.o oop_asg.o Person.o Vaccination_Information.o Vaccination_Status.o
+LINKOBJ  = eCPIS.o MyDate.o oop_asg.o Person.o Vaccination_Information.o Vaccination_Status.o
+LIBS     = -L"D:/usm/c++/Dev-Cpp/MinGW64/lib" -L"D:/usm/c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/usm/c++/Dev-Cpp/MinGW64/include" -I"D:/usm/c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/usm/c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/usm/c++/Dev-Cpp/MinGW64/include" -I"D:/usm/c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/usm/c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/usm/c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = ProjectCPT113.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+eCPIS.o: eCPIS.cpp
+	$(CPP) -c eCPIS.cpp -o eCPIS.o $(CXXFLAGS)
+
+MyDate.o: MyDate.cpp
+	$(CPP) -c MyDate.cpp -o MyDate.o $(CXXFLAGS)
+
+oop_asg.o: oop_asg.cpp
+	$(CPP) -c oop_asg.cpp -o oop_asg.o $(CXXFLAGS)
+
+Person.o: Person.cpp
+	$(CPP) -c Person.cpp -o Person.o $(CXXFLAGS)
+
+Vaccination_Information.o: Vaccination_Information.cpp
+	$(CPP) -c Vaccination_Information.cpp -o Vaccination_Information.o $(CXXFLAGS)
+
+Vaccination_Status.o: Vaccination_Status.cpp
+	$(CPP) -c Vaccination_Status.cpp -o Vaccination_Status.o $(CXXFLAGS)
